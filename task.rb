@@ -29,7 +29,12 @@ def q4
   sports = ["サッカー", "フットサル", nil, "野球", "バスケ", nil, "バレー"]
 
   # 以下に回答を記載
-  sports.include?(nil) ? sports.compact! : sports
+
+  # 修正前
+  # sports.include?(nil) ? sports.compact! : sports
+
+  # 修正後
+  sports.compact!
   # 以下は変更しないで下さい
   p sports
 end
