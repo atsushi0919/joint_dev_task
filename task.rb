@@ -123,9 +123,13 @@ def q13
   update_data = { age: 32, address: "沖縄" }
 
   # 以下に回答を記載
-  update_data.each do |key, val|
-    user_data[key] = val
-  end
+  # 修正前
+  # update_data.each do |key, val|
+  #   user_data[key] = val
+  # end
+
+  # 修正後
+  user_data.merge!(update_data)
   p user_data
 end
 
@@ -133,7 +137,11 @@ def q14
   data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
 
   # 以下に回答を記載
-  keys = data.each_key.to_a
+  # 修正前
+  # keys = data.each_key.to_a
+
+  # 修正後
+  keys = data.keys
   p keys
 end
 
@@ -142,8 +150,14 @@ def q15
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
+  # 修正前
+  # [data1, data2].each do |data|
+  #   puts data.each_key.to_a.include?(:age) ? "OK" : "NG"
+  # end
+
+  # 修正後
   [data1, data2].each do |data|
-    puts data.each_key.to_a.include?(:age) ? "OK" : "NG"
+    puts data.keys.include?(:age) ? "OK" : "NG"
   end
 end
 
